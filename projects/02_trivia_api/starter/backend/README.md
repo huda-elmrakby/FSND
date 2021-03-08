@@ -90,6 +90,62 @@ GET '/categories'
 ```
 
 
+## API Endpoints Documentation
+
+GET '/categories'
+
+Fetches a dictionary of categories in which the keys are the ids and the value is the corresponding string of the category
+Request Argument: None
+Returns: An object with a strig key, categories, that contains an object of id: category_string key:value pairs.
+{
+{'1' : "Science",
+'2' : "Art",
+'3' : "Geography",
+'4' : "History",
+'5' : "Entertainment",
+'6' : "Sports"}
+
+}
+GET /questions?page=<page_number>
+
+Fetches a dictionary of categories in which the keys are the ids and the value is the corresponding string of the category.
+Fetches a dictionary of questions in which the keys are the answer, category, difficulty, id and question.
+Request Arguments: Page Number
+Returns: List of questions, number of total questions, current category and categories.
+
+DELETE /questions/<question_id>
+
+Delete question from the questions list.
+Request Arguments: Question Id
+Returns: true if successfully deleted. Example Response {"success":true}
+
+POST /questions
+
+Create a new question
+Request Body: question, answer, difficulty and category.
+Returns: true if successfully created.
+
+
+POST /searchQuestions
+
+Searches for the questions
+Request Arguments: Page Number
+Request Body: search_data
+Returns: List of questions, number of total questions and current category.
+total_questions: 2
+
+GET /categories/<int:category_id>/questions
+
+To get questions based on category
+Request Arguments: Category Id and Page Number.
+Returns: List of questions, number of total questions, current category and categories.
+
+POST /quizzes/<int:quiz_category>
+
+To get questions to play the quiz.
+Request Body: quiz_category and previous_questions.
+Returns: Random questions within the given category. 
+
 ## Testing
 To run the tests, run
 ```
